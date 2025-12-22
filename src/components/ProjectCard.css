@@ -1,0 +1,174 @@
+.project-card {
+  background: rgba(42, 34, 24, 0.6);
+  border: 1px solid rgba(184, 149, 106, 0.15);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+  break-inside: avoid;
+  page-break-inside: avoid;
+  animation: fadeInMasonry 0.6s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInMasonry {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+.project-card:nth-child(n+5) { animation-delay: 0.5s; }
+
+.project-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    0 10px 25px rgba(184, 149, 106, 0.15),
+    0 15px 35px rgba(139, 111, 71, 0.1);
+  border-color: rgba(184, 149, 106, 0.3);
+}
+
+.project-image-container {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  background: #2a2218;
+}
+
+/* Variable heights for masonry */
+.project-card[data-size="small"] .project-image-container {
+  height: 200px;
+}
+
+.project-card[data-size="medium"] .project-image-container {
+  height: 280px;
+}
+
+.project-card[data-size="large"] .project-image-container {
+  height: 380px;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.1);
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.view-project {
+  color: #f5f1eb;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.project-info {
+  padding: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: white;
+  letter-spacing: 0.05em;
+}
+
+.project-description {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.project-tag {
+  padding: 0.4rem 1rem;
+  background: rgba(184, 149, 106, 0.2);
+  border: 1px solid rgba(184, 149, 106, 0.3);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: #d4c4a8;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .project-tag {
+  background: rgba(184, 149, 106, 0.3);
+  border-color: rgba(184, 149, 106, 0.5);
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .project-image-container {
+    height: 250px;
+  }
+  
+  /* Normalize heights on mobile for better stacking */
+  .project-card[data-size="small"] .project-image-container,
+  .project-card[data-size="medium"] .project-image-container,
+  .project-card[data-size="large"] .project-image-container {
+    height: 250px;
+  }
+  
+  .project-info {
+    padding: 1.5rem;
+  }
+  
+  .project-title {
+    font-size: 1.3rem;
+  }
+}
+
