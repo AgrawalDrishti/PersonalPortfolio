@@ -89,3 +89,4 @@ When creating About, Contact, or other pages, use:
 
 Your portfolio now tells a visual story that flows naturally from page to page! 🌿✨
 
+
