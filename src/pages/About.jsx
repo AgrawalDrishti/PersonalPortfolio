@@ -216,9 +216,10 @@ const About = () => {
               </div>
               <div className="flip-card-back">
                 <h3>Experience</h3>
-                <p className="card-detail">Full Stack Development</p>
-                <p className="card-subdetail">AI/ML • Web • Mobile • Cloud</p>
-                <p className="card-subdetail">6+ completed projects</p>
+                <p className="card-detail"><strong>Adobe Inc.</strong></p>
+                <p className="card-subdetail">Product Intern (Summer 2024)</p>
+                <p className="card-subdetail">Software Engineer (2025 - Present)</p>
+                <p className="card-subdetail">Gen AI Integration • Automation</p>
               </div>
             </div>
           </div>
