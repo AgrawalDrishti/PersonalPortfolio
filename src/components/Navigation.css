@@ -2,7 +2,7 @@
   position: fixed;
   top: 1.5rem;
   right: 2rem;
-  z-index: 100;
+  z-index: 200;
 }
 
 .nav-links {
