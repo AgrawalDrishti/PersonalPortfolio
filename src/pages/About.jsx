@@ -23,7 +23,7 @@ const About = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
+            entry.target.setAttribute('data-in-view', 'true');
             observer.unobserve(entry.target);
           }
         });
