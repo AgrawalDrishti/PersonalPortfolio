@@ -1,0 +1,225 @@
+.home-page {
+  width: 100%;
+}
+
+/* Scroll-scrubbed statement */
+.scrub-section {
+  position: relative;
+  height: 250vh;
+  background: var(--ink);
+}
+
+.scrub-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding-left: 3rem;
+}
+
+.scrub-caption {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--cream-text);
+  opacity: 0.7;
+  margin-bottom: 1.5rem;
+}
+
+.scrub-caption-doodle {
+  width: 14px;
+}
+
+.scrub-text {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  line-height: 1.1;
+  color: var(--cream-text);
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.scrub-text em {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent-lime);
+}
+
+/* Quick links collage */
+.quick-links-section {
+  position: relative;
+  background: var(--paper);
+  padding: 7rem 3rem;
+  overflow: hidden;
+  text-align: center;
+}
+
+.quick-links-blob-1 {
+  top: -80px;
+  left: -100px;
+  opacity: 0.5;
+}
+
+.quick-links-blob-2 {
+  bottom: -100px;
+  right: -80px;
+  opacity: 0.4;
+}
+
+.section-heading {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--ink);
+}
+
+.heading-dot {
+  color: var(--accent-orange);
+}
+
+.section-heading-underline {
+  position: relative;
+  z-index: 1;
+  width: 180px;
+  margin: 0.5rem auto 3rem;
+}
+
+.quick-links-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.quick-link-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.5rem;
+  padding: 2rem 1.5rem;
+  min-height: 220px;
+  border: 2px solid var(--ink);
+  border-radius: 20px;
+  text-decoration: none;
+  color: var(--ink);
+  transform: rotate(var(--rotate));
+  box-shadow: 6px 8px 0 var(--ink);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quick-link-card:hover {
+  transform: rotate(0deg) translateY(-6px);
+  box-shadow: 8px 12px 0 var(--ink);
+}
+
+.quick-link-sticker {
+  align-self: flex-end;
+}
+
+.quick-link-label {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  line-height: 1.2;
+}
+
+.quick-link-arrow {
+  font-size: 1.5rem;
+  margin-top: auto;
+}
+
+/* Closing CTA */
+.home-cta-section {
+  position: relative;
+  background: var(--ink);
+  padding: 8rem 3rem;
+  text-align: center;
+}
+
+.home-cta-eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent-pink);
+  margin-bottom: 1rem;
+}
+
+.home-cta-title {
+  position: relative;
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  color: var(--cream-text);
+  margin-bottom: 2.5rem;
+}
+
+.home-cta-title em {
+  font-family: var(--font-accent);
+  font-style: italic;
+  color: var(--accent-lime);
+}
+
+.home-cta-underline {
+  display: block;
+  width: 220px;
+  margin: 0.5rem auto 0;
+}
+
+.home-cta-button {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+  background: var(--accent-lime);
+  padding: 1.1rem 2.5rem;
+  border-radius: 30px;
+  border: 2px solid var(--ink);
+  text-decoration: none;
+  box-shadow: 5px 6px 0 var(--cream-text);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.home-cta-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 9px 0 var(--cream-text);
+}
+
+@media (max-width: 1024px) {
+  .quick-links-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .quick-links-section,
+  .home-cta-section {
+    padding: 5rem 1.5rem;
+  }
+
+  .quick-links-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-link-card {
+    min-height: 160px;
+  }
+
+  .scrub-sticky {
+    padding-left: 1.5rem;
+  }
+}

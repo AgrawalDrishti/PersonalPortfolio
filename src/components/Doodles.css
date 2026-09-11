@@ -1,0 +1,40 @@
+.doodle {
+  display: block;
+  pointer-events: none;
+}
+
+.doodle-underline {
+  width: 100%;
+  height: auto;
+}
+
+.doodle-arrow {
+  width: 70px;
+  height: auto;
+}
+
+.doodle-squiggle {
+  width: 30px;
+  height: auto;
+}
+
+.doodle-blob {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  opacity: 0.9;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.sticker-badge {
+  display: inline-block;
+  padding: 0.5rem 1.1rem;
+  border-radius: 14px 18px 16px 20px;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  color: var(--ink);
+  box-shadow: 3px 4px 0 rgba(20, 18, 15, 0.85);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}

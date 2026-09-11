@@ -1,116 +1,67 @@
 .works-page {
   position: relative;
   min-height: 100vh;
-  background: linear-gradient(135deg, #1a1612 0%, #0f0d0a 100%);
-  color: white;
-  padding: 8rem 3rem 4rem;
-  overflow: hidden;
-}
-
-/* Animated gradient orbs - warm earthy tones */
-.works-page::before,
-.works-page::after {
-  content: '';
-  position: fixed;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.15;
-  z-index: 0;
-  animation: float 20s ease-in-out infinite;
-}
-
-.works-page::before {
-  width: 500px;
-  height: 500px;
-  background: linear-gradient(45deg, #2d7a4d, #4a9d5f);
-  top: -250px;
-  left: -250px;
-  animation-delay: 0s;
-}
-
-.works-page::after {
-  width: 400px;
-  height: 400px;
-  background: linear-gradient(45deg, #c4956f, #8b6f47);
-  bottom: -200px;
-  right: -200px;
-  animation-delay: 5s;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  25% {
-    transform: translate(50px, -50px) scale(1.1);
-  }
-  50% {
-    transform: translate(-30px, 30px) scale(0.9);
-  }
-  75% {
-    transform: translate(30px, 50px) scale(1.05);
-  }
+  background: var(--paper);
+  color: var(--ink);
+  padding: 8rem 3rem 6rem;
 }
 
 .works-header {
   position: relative;
-  z-index: 1;
-  margin-bottom: 4rem;
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 2rem;
+  max-width: 1400px;
+  margin: 0 auto 4rem;
+}
+
+.works-count-sticker {
+  margin-bottom: 1.5rem;
+  display: inline-block;
 }
 
 .works-title {
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  color: white;
-  text-align: right;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-transform: lowercase;
 }
 
-.separator {
-  color: #666;
-  margin: 0 1rem;
+.works-title em {
+  font-family: var(--font-accent);
+  font-style: italic;
+  color: var(--accent-orange);
 }
 
-.projects-masonry {
+.works-title-underline {
+  width: 200px;
+  margin-top: 0.5rem;
+}
+
+.projects-grid {
   position: relative;
-  z-index: 1;
   max-width: 1400px;
   margin: 0 auto;
-  column-count: 3;
-  column-gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem 2.5rem;
 }
 
 @media (max-width: 1024px) {
   .works-page {
-    padding: 6rem 2rem 3rem;
+    padding: 6rem 2rem 4rem;
   }
-  
-  .projects-masonry {
-    column-count: 2;
-    column-gap: 1.5rem;
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
   .works-page {
-    padding: 5rem 1.5rem 2rem;
+    padding: 5rem 1.5rem 3rem;
   }
-  
-  .works-header {
-    justify-content: center;
-    padding-right: 0;
-  }
-  
-  .works-title {
-    text-align: center;
-  }
-  
-  .projects-masonry {
-    column-count: 1;
-    column-gap: 0;
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
 }
-

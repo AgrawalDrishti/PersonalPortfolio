@@ -7,6 +7,21 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Scrapbook theme tokens */
+  --paper: #ede7db;
+  --paper-soft: #f4efe5;
+  --ink: #14120f;
+  --ink-soft: #201d18;
+  --cream-text: #f5f0e6;
+  --accent-orange: #ff5a36;
+  --accent-blue: #6a6ff5;
+  --accent-green: #2f7a55;
+  --accent-pink: #ff6fa0;
+  --accent-lime: #d6ff4f;
+
+  --font-display: 'Archivo Black', 'Inter', sans-serif;
+  --font-accent: 'Instrument Serif', Georgia, serif;
 }
 
 * {

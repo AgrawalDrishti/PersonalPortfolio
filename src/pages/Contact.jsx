@@ -1,5 +1,15 @@
 import { useState } from 'react';
+import { DoodleUnderline, StickerBadge } from '../components/Doodles';
 import './Contact.css';
+
+const CONFETTI_COLORS = ['var(--accent-orange)', 'var(--accent-blue)', 'var(--accent-green)', 'var(--accent-pink)', 'var(--accent-lime)'];
+
+const CONFETTI_PIECES = Array.from({ length: 18 }, (_, i) => ({
+  left: `${Math.random() * 100}%`,
+  color: CONFETTI_COLORS[i % CONFETTI_COLORS.length],
+  delay: `${Math.random() * 0.3}s`,
+  rotate: `${Math.floor(Math.random() * 360)}deg`
+}));
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -35,32 +45,32 @@ const Contact = () => {
     {
       name: 'GitHub',
       url: 'https://github.com/AgrawalDrishti',
-      color: '#b8956a'
+      color: '#ff5a36'
     },
     {
       name: 'LinkedIn',
       url: 'https://www.linkedin.com/in/drishti2904/',
-      color: '#c4956f'
+      color: '#6a6ff5'
     },
     {
       name: 'Twitter',
       url: 'https://x.com/Drishti2904',
-      color: '#8b6f47'
+      color: '#2f7a55'
     },
     {
       name: 'Email',
       url: 'mailto:drishti29agrawal@gmail.com',
-      color: '#a89984'
+      color: '#ff6fa0'
     },
     {
       name: 'Portfolio',
       url: '#',
-      color: '#d4c4a8'
+      color: '#8b5cf6'
     },
     {
       name: 'Resume',
       url: '#',
-      color: '#9a7f5c'
+      color: '#d6ff4f'
     }
   ];
 
@@ -92,9 +102,13 @@ const Contact = () => {
       <div className="contact-container">
         {/* Header */}
         <section className="contact-header">
+          <StickerBadge color="var(--accent-lime)" rotate={-6} className="contact-header-sticker">
+            say hi ✦
+          </StickerBadge>
           <h1 className="contact-title">
-            LET'S <span className="highlight-text">CONNECT</span>
+            let's <span className="highlight-text">connect</span>
           </h1>
+          <DoodleUnderline color="var(--ink)" className="contact-title-underline" />
           <p className="contact-subtitle">
             Have a project in mind or just want to chat? I'd love to hear from you!
           </p>
@@ -107,9 +121,25 @@ const Contact = () => {
               <h2 className="form-title">Send Me a Message</h2>
               
               {submitStatus === 'success' && (
-                <div className="success-message fade-in">
-                  Message sent successfully! I'll get back to you soon.
-                </div>
+                <>
+                  <div className="success-message fade-in">
+                    Message sent successfully! I'll get back to you soon.
+                  </div>
+                  <div className="confetti-burst" aria-hidden="true">
+                    {CONFETTI_PIECES.map((piece, i) => (
+                      <span
+                        key={i}
+                        className="confetti-piece"
+                        style={{
+                          left: piece.left,
+                          background: piece.color,
+                          animationDelay: piece.delay,
+                          '--start-rotate': piece.rotate
+                        }}
+                      />
+                    ))}
+                  </div>
+                </>
               )}
 
               <form onSubmit={handleSubmit} className="contact-form">

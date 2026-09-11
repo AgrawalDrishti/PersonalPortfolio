@@ -1,29 +1,36 @@
 .logo-container {
   position: fixed;
-  top: 2rem;
-  left: 3rem;
+  top: 1.5rem;
+  left: 2rem;
   z-index: 100;
 }
 
 .logo {
-  color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  color: var(--ink);
+  box-shadow: 3px 4px 0 var(--ink);
   transition: transform 0.3s ease;
 }
 
 .logo:hover {
-  transform: scale(1.05);
+  transform: scale(1.05) rotate(-6deg);
 }
 
 @media (max-width: 768px) {
   .logo-container {
-    top: 1.5rem;
-    left: 2rem;
+    top: 1rem;
+    left: 1rem;
   }
-  
+
   .logo {
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: 44px;
   }
 }
-
-

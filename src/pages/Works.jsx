@@ -1,4 +1,5 @@
 import ProjectCard from '../components/ProjectCard';
+import { DoodleUnderline, StickerBadge } from '../components/Doodles';
 import './Works.css';
 
 const Works = () => {
@@ -62,13 +63,17 @@ const Works = () => {
   return (
     <div className="works-page">
       <div className="works-header">
+        <StickerBadge color="var(--accent-lime)" rotate={-6} className="works-count-sticker">
+          {projects.length} builds
+        </StickerBadge>
         <h1 className="works-title">
-          PROJECTS <span className="separator">•</span> RECENT
+          things I've <em>made</em>
         </h1>
+        <DoodleUnderline color="var(--ink)" className="works-title-underline" />
       </div>
-      <div className="projects-masonry">
-        {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
+      <div className="projects-grid">
+        {projects.map((project, index) => (
+          <ProjectCard key={project.id} project={project} index={index} />
         ))}
       </div>
     </div>
@@ -76,4 +81,3 @@ const Works = () => {
 };
 
 export default Works;
-
