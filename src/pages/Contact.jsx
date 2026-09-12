@@ -1,6 +1,11 @@
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { DoodleUnderline, StickerBadge } from '../components/Doodles';
 import './Contact.css';
+
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const CONFETTI_COLORS = ['var(--accent-orange)', 'var(--accent-blue)', 'var(--accent-green)', 'var(--accent-pink)', 'var(--accent-lime)'];
 
@@ -13,6 +18,7 @@ const CONFETTI_PIECES = Array.from({ length: 18 }, (_, i) => ({
 
 const Contact = () => {
   const [formData, setFormData] = useState({
+    email: '',
     subject: '',
     message: ''
   });
@@ -30,15 +36,31 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({ subject: '', message: '' });
-      
-      setTimeout(() => setSubmitStatus(null), 5000);
-    }, 1500);
+    setSubmitStatus(null);
+
+    emailjs
+      .send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message
+        },
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      )
+      .then(() => {
+        setIsSubmitting(false);
+        setSubmitStatus('success');
+        setFormData({ email: '', subject: '', message: '' });
+        setTimeout(() => setSubmitStatus(null), 5000);
+      })
+      .catch((error) => {
+        console.error('EmailJS send failed:', error);
+        setIsSubmitting(false);
+        setSubmitStatus('error');
+        setTimeout(() => setSubmitStatus(null), 5000);
+      });
   };
 
   const socialLinks = [
@@ -142,7 +164,27 @@ const Contact = () => {
                 </>
               )}
 
+              {submitStatus === 'error' && (
+                <div className="error-message fade-in">
+                  Something went wrong sending that — please try again, or email me directly.
+                </div>
+              )}
+
               <form onSubmit={handleSubmit} className="contact-form">
+                <div className="form-group">
+                  <label htmlFor="email" className="form-label">Your Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="you@example.com"
+                    required
+                    className="form-input"
+                  />
+                </div>
+
                 <div className="form-group">
                   <label htmlFor="subject" className="form-label">Subject</label>
                   <input
