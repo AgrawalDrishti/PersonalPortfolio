@@ -335,6 +335,10 @@
   background: var(--ink);
   border-radius: 20px;
   padding: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .social-title {
